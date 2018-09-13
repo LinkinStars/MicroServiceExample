@@ -11,17 +11,17 @@ Gradle ： 4.8
 ## 项目结构
 | 目录 | 名称 | 访问地址 |
 | --- | --- | --- |
-| eureka | 注册中心 | http://localhost:8761 |
-| gateway | 网关+路由 | http://localhost:8769/order/buy <br> http://localhost:8769/pay/pay |
-| order | 订单服务 | http://localhost:8763/buy |
-| pay | 支付服务 | http://localhost:8762/pay |
+| eureka | 注册中心 | http://127.0.0.1:8761 |
+| gateway | 网关+路由 | http://127.0.0.1:8769/order/buy <br> http://127.0.0.1:8769/pay/pay |
+| order | 订单服务 | http://127.0.0.1:8763/buy |
+| pay | 支付服务 | http://127.0.0.1:8762/pay |
 
 
 ## 启动顺序
 注册中心 -> 网关 -> 订单 -> 支付  
 
 ## 服务顺序
-通过网关访问：http://localhost:8769/order/buy    
+通过网关访问：http://127.0.0.1:8769/order/buy    
 用户购买行为 -> 通过网关(gateway) -> 订单(order)服务 -> 支付(pay)服务  
 
 ## 具体完整项目说明讲解
