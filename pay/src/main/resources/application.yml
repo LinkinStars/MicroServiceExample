@@ -9,3 +9,30 @@ eureka:
 spring:
   application:
     name: pay
+
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        # 并发数
+        concurrency: 5
+        # 最大并发数
+        max-concurrency: 10
+        # 自动签收
+        acknowledge-mode: manual
+        # 限流，每个线程最多同时处理1个消息
+        prefetch: 5
+  # 数据库连接配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shopping?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=true
+    username: root
+    password: 1qaz2wsx
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.linkinstar.pay.bean 

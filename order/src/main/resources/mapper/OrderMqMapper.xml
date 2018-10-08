@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linkinstar.order.dao.OrderMqDao">
+
+    <insert id="addOrderMq" parameterType="com.linkinstar.order.bean.OrderMq">
+        INSERT INTO order_mq_tab
+        (messageId, messageContent, messageStatus)
+        VALUE (#{messageId}, #{messageContent}, #{messageStatus})
+    </insert>
+    
+    <update id="updateOrderMqStatus">
+        UPDATE order_mq_tab
+        SET messageStatus = #{messageStatus}
+        WHERE messageId = #{messageId}
+    </update>
+    
+    <select id="queryOrderMqByStatus" resultType="com.linkinstar.order.bean.OrderMq">
+        SELECT messageId, messageContent, messageStatus
+        FROM order_mq_tab
+        WHERE messageStatus = 1
+        AND addTime <![CDATA[ < ]]> #{curTime}
+    </select>
+</mapper>

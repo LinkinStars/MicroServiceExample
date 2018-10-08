@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 支付服务
+ *
  * @author LinkinStar
  */
 @SpringBootApplication

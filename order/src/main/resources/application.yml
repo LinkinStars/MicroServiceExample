@@ -9,3 +9,27 @@ eureka:
 spring:
   application:
     name: order
+
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: guest
+    password: guest
+    # 打开发布确认
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+  
+    
+  # 数据库连接配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shopping?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=true
+    username: root
+    password: 1qaz2wsx
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.linkinstar.order.bean
