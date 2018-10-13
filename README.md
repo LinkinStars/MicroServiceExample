@@ -38,7 +38,7 @@ rabbitMq -> 注册中心 -> 网关 -> 订单 -> 支付
 6、针对那些一直处理失败的，且很长一段时间都没办法处理成功的消息交由人工或者其他途径处理  
 
 ## 具体完整项目说明讲解
-https://www.cnblogs.com/linkstar/p/9610268.html
+https://www.cnblogs.com/linkstar/p/9784243.html
 
 
 
