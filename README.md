@@ -37,8 +37,54 @@ rabbitMq -> 注册中心 -> 网关 -> 订单 -> 支付
 5、定时任务去操作那些未处理，并且已经经过一段时间的消息  
 6、针对那些一直处理失败的，且很长一段时间都没办法处理成功的消息交由人工或者其他途径处理  
 
+## 数据库设计
+数据库只是为了满足测试要求，不做实际用途
+````sql
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for consumer_mq_tab
+-- ----------------------------
+DROP TABLE IF EXISTS `consumer_mq_tab`;
+CREATE TABLE `consumer_mq_tab` (
+  `messageId` varchar(255) NOT NULL,
+  `messageContent` varchar(255) NOT NULL,
+  `messageStatus` int(11) NOT NULL,
+  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`messageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for order_mq_tab
+-- ----------------------------
+DROP TABLE IF EXISTS `order_mq_tab`;
+CREATE TABLE `order_mq_tab` (
+  `messageId` varchar(255) NOT NULL,
+  `messageContent` varchar(255) NOT NULL,
+  `messageStatus` int(11) NOT NULL,
+  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`messageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for order_tab
+-- ----------------------------
+DROP TABLE IF EXISTS `order_tab`;
+CREATE TABLE `order_tab` (
+  `orderId` varchar(255) NOT NULL,
+  `messageId` varchar(255) NOT NULL,
+  `orderContent` varchar(255) NOT NULL,
+  PRIMARY KEY (`orderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET FOREIGN_KEY_CHECKS = 1;
+````
+
 ## 具体完整项目说明讲解
 https://www.cnblogs.com/linkstar/p/9784243.html
+
+
 
 
 
