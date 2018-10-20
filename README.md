@@ -8,6 +8,11 @@ SpringBoot ： 2.0.4.RELEASE
 Gradle ： 4.8  
 这个项目用于讲述微服务拆分的例子，没有实现具体的数据库操作，只是为了展示拆分后的效果，用于演示。
 
+## 分支说明
+master：用于拆分说明，并作为基本案例  
+distributed-transaction：mq最终一致性案例说明  
+dockerization：用于容器化案例说明  
+
 ## 项目结构
 | 目录 | 名称 | 访问地址 |
 | --- | --- | --- |
