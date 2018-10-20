@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mic-eureka:
+    build:
+      context: eureka
+    image: mic-eureka:latest
+    ports:
+      - 8761:8761
+  
+  mic-gateway:
+    build:
+      context: gateway
+    image: mic-gateway:latest
+    links:
+      - mic-eureka
+      - mic-pay
+      - mic-order
+    ports:
+      - 8769:8769
+      
+  mic-pay:
+    build:
+      context: pay
+    image: mic-pay:latest
+  
+  mic-order:
+    build:
+      context: order
+    image: mic-order:latest
