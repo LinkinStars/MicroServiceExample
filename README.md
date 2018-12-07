@@ -26,7 +26,8 @@
   
 整体编排部署：  
 进入根目录（目录下有docker-compose.yml）  
-使用命令：docker-compose up -d  
+后台启动：docker-compose up -d
+停止：docker-compose down  
 
 ## 容器化说明
 在所有module每个目录下面都存在一个Dockerfile，类似如下：
